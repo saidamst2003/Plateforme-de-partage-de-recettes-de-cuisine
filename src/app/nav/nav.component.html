@@ -1,108 +1,76 @@
-<div class="bg-white border-bottom py-2 d-none d-lg-block">
-    <div class="container d-lg-flex justify-content-between align-items-center">
-      
-      <!-- Top Links -->
-      <div class="d-flex flex-column flex-lg-row align-items-center mb-2 mb-lg-0">
-        <a class="nav-link px-2" href="/home">HOME</a>
-        <a class="nav-link px-2" href="#">ABOUT</a>
-        <a class="nav-link px-2" href="#">RECIPE INDEX</a>
-        <a class="nav-link px-2" href="#">SHOP</a>
+<!-- Top Bar -->
+<div class="bg-white border-b py-2 hidden lg:block">
+  <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+    <!-- Top Links -->
+    <div class="flex flex-col lg:flex-row items-center mb-2 lg:mb-0">
+      <a class="px-2 text-gray-700 hover:text-indigo-600" href="/home">HOME</a>
+      <a class="px-2 text-gray-700 hover:text-indigo-600" href="#">ABOUT</a>
+      <a class="px-2 text-gray-700 hover:text-indigo-600" href="#">RECIPE INDEX</a>
+      <a class="px-2 text-gray-700 hover:text-indigo-600" href="#">SHOP</a>
+    </div>
+
+    <!-- Social + Search -->
+    <div class="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0">
+      <div class="flex space-x-2 mr-4">
+        <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="bi bi-rss-fill"></i></a>
+        <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="bi bi-pinterest"></i></a>
+        <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-gray-600 hover:text-indigo-600"><i class="bi bi-envelope-fill"></i></a>
       </div>
-  
-      <!-- Social + Search -->
-      <div class="d-flex flex-column flex-lg-row align-items-center">
-        <div class="social-icons me-lg-3 mb-2 mb-lg-0">
-          <a class="px-1" href="#"><i class="bi bi-rss-fill"></i></a>
-          <a class="px-1" href="#"><i class="bi bi-facebook"></i></a>
-          <a class="px-1" href="#"><i class="bi bi-pinterest"></i></a>
-          <a class="px-1" href="#"><i class="bi bi-twitter"></i></a>
-          <a class="px-1" href="#"><i class="bi bi-envelope-fill"></i></a>
-        </div>
-        <form class="d-flex">
-          <input class="form-control form-control-sm me-1" type="search" placeholder="enter keywords">
-          <button class="btn btn-sm btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
-        </form>
-      </div>
+      <form class="flex">
+        <input type="text" placeholder="enter keywords" class="border rounded px-2 py-1 text-sm mr-2" />
+        <button type="submit" class="border px-2 py-1 text-sm hover:bg-gray-100"><i class="bi bi-search"></i></button>
+      </form>
     </div>
   </div>
-  
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="../../assets/images/logo.png" class="img" ></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Page 1
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Page 1-1</a></li>
-              <li><a class="dropdown-item" href="#">Page 1-2</a></li>
-              <li><a class="dropdown-item" href="#">Page 1-3</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Page 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Page 3</a>
-          </li>
-        </ul>
-  
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item dropdown d-lg-none">
-            <a class="nav-link dropdown-toggle" href="#" id="topLinks" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Top Links
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">HOME</a></li>
-              <li><a class="dropdown-item" href="#">ABOUT</a></li>
-              <li><a class="dropdown-item" href="#">RECIPE INDEX</a></li>
-              <li><a class="dropdown-item" href="#">SHOP</a></li>
-            </ul>
-          </li>
-          
-          <!-- Dropdown for Social + Search (visible only on mobile) -->
-          <li class="nav-item dropdown d-lg-none">
-            <a class="nav-link dropdown-toggle" href="#" id="socialSearch" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Social + Search
-            </a>
-            <ul class="dropdown-menu">
-              <li class="px-3">
-                <a class="px-1" href="#"><i class="bi bi-rss-fill"></i></a>
-                <a class="px-1" href="#"><i class="bi bi-facebook"></i></a>
-                <a class="px-1" href="#"><i class="bi bi-pinterest"></i></a>
-                <a class="px-1" href="#"><i class="bi bi-twitter"></i></a>
-                <a class="px-1" href="#"><i class="bi bi-envelope-fill"></i></a>
-              </li>
-              <li>
-                <form class="d-flex px-3">
-                  <input class="form-control form-control-sm me-1" type="search" placeholder="enter keywords">
-                  <button class="btn btn-sm btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </li>
-            </ul>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/singnup"><i class="bi bi-person"></i> Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
-          </li>
-        </ul>
-        
-      </div>
+</div>
+
+<!-- Main Navbar -->
+<nav class="bg-white border-b">
+  <div class="container mx-auto flex flex-wrap items-center justify-between ">
+    <a href="#" class="flex items-center">
+      <img src="../../assets/images/logo.png" class="h-8" alt="Logo">
+    </a>
+
+    <button class="block lg:hidden text-gray-700" id="menu-toggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <div class="w-full lg:flex lg:items-center lg:w-auto hidden" id="menu">
+      <ul class="flex flex-col lg:flex-row lg:space-x-4 w-full">
+        <li><a class="block px-2 py-1 text-gray-700 hover:text-indigo-600" href="home">Home</a></li>
+        <li class="relative group">
+          <button class="block px-2 py-1 text-gray-700 hover:text-indigo-600">Page 1</button>
+          <ul class="absolute hidden group-hover:block bg-white border mt-1 rounded shadow-lg">
+            <li><a class="block px-4 py-2 hover:bg-gray-100" href="#">Page 1-1</a></li>
+            <li><a class="block px-4 py-2 hover:bg-gray-100" href="#">Page 1-2</a></li>
+            <li><a class="block px-4 py-2 hover:bg-gray-100" href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a class="block px-2 py-1 text-gray-700 hover:text-indigo-600" href="#">Page 2</a></li>
+        <li><a class="block px-2 py-1 text-gray-700 hover:text-indigo-600" href="#">Page 3</a></li>
+      </ul>
+
+      <!-- Right part (Sign up / Login) -->
+      <ul class="flex flex-col lg:flex-row lg:ml-auto lg:space-x-4 mt-4 lg:mt-0">
+        <li>
+          <a class="block px-2 py-1 text-gray-700 hover:text-indigo-600" routerLink="/singnup">
+            <i class="bi bi-person"></i> Sign Up
+          </a>
+        </li>
+        <li>
+          <a class="block px-2 py-1 text-gray-700 hover:text-indigo-600" routerLink="/login">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
