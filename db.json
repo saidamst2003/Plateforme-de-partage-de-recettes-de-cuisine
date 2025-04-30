@@ -1,0 +1,17 @@
+{
+    "recipes": [
+      {
+        "id": 1,
+        "title": "Tajine de poulet",
+        "description": "Un plat traditionnel marocain.",
+        "ingredients": ["Poulet", "Citron confit", "Olives", "Épices"],
+        "steps": ["Préparer le poulet", "Ajouter les ingrédients", "Cuire doucement"],
+        "imageUrl": "tajine.jpg",
+        "category": "Plat",
+        "rating": 5,
+        "chef": "Ibrahim"
+      }
+    ]
+  }
+
+  
