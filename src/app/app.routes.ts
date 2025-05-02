@@ -12,14 +12,17 @@ export const routes: Routes = [
         path:'home',
         component:HomeComponent
     },
+    
+    
     {
-        path:'detail', // make dynamic links (detail/:recetteId)
+        path:'detail/:id', // Dynamic route with id parameter
         component:RecipeDetailComponent
     },
     {
-         path:'list',
-         component :RecipeListComponent
-    
+        path:'list',
+        component:RecipeListComponent
     },
-    
+     
+ 
 ];
+ 

@@ -4,9 +4,8 @@
       <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-stone-950">Découvrez nos recettes du jour</span>
       <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-700 to-stone-950"></span>
     </h1>
-   </div>
-  
-  
+  </div>
+ 
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
       <div
@@ -26,7 +25,10 @@
           Delicious chicken-based recipe from TheMealDB.
         </p>
         <div class="flex justify-center mt-auto pt-4">
-          <button class="bg-black text-white py-1.5 px-4 rounded-full font-bold text-sm hover:bg-gray-800 transition-colors duration-300">
+          <button 
+            class="bg-black text-white py-1.5 px-4 rounded-full font-bold text-sm hover:bg-gray-800 transition-colors duration-300"
+            (click)="viewRecipeDetails(card.idMeal)"
+          >
             SEE RECIPE
           </button>
         </div>

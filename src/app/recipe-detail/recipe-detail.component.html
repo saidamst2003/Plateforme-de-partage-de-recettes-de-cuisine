@@ -1,1 +1,109 @@
-<p>recipe-detail works!</p>
+<div class="bg-gray-50 py-16" *ngIf="!loading && !error && recipeDetails">
+  <div class="container mx-auto px-4">
+    <!-- Recipe Header -->
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl font-bold text-black leading-tight mb-2 pb-4 relative">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-stone-950">{{ recipeDetails.strMeal }}</span>
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-amber-700 to-stone-950"></span>
+      </h1>
+      <div class="flex justify-center gap-4 mt-4">
+        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">{{ recipeDetails.strCategory }}</span>
+        <span class="bg-stone-100 text-stone-800 px-3 py-1 rounded-full text-sm font-medium">{{ recipeDetails.strArea }}</span>
+      </div>
+    </div>
+
+    <!-- Recipe Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Left Column: Image -->
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-6">
+          <img [src]="recipeDetails.strMealThumb" [alt]="recipeDetails.strMeal" class="w-full h-auto">
+        </div>
+        
+        <!-- Ingredients Panel -->
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">Ingredients</h2>
+          <ul class="space-y-3">
+            <li *ngFor="let ingredient of getIngredients()" class="flex items-center border-b border-gray-100 pb-2">
+              <div class="bg-amber-50 rounded-full p-2 mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <span class="text-gray-700">{{ ingredient.measure }} {{ ingredient.name }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Right Column: Instructions -->
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+          <h2 class="text-2xl font-bold mb-6 text-gray-900">Instructions</h2>
+          <div class="space-y-4">
+            <div *ngFor="let step of recipeDetails.strInstructions.split('\r\n'); let i = index" class="flex">
+              <div *ngIf="step.trim().length > 0" class="flex">
+                <div class="mr-4 flex-shrink-0">
+                  <div class="flex items-center justify-center w-8 h-8 rounded-full bg-amber-500 text-white font-bold">
+                    {{ i + 1 }}
+                  </div>
+                </div>
+                <p class="text-gray-700 mb-4">{{ step }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Resources -->
+        <div *ngIf="recipeDetails.strYoutube || recipeDetails.strSource" class="mt-6 bg-white rounded-2xl shadow-xl p-6">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900">Additional Resources</h2>
+          <div class="flex flex-wrap gap-4">
+            <a *ngIf="recipeDetails.strYoutube" [href]="recipeDetails.strYoutube" target="_blank" 
+              class="flex items-center px-4 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              Watch Video Tutorial
+            </a>
+            <a *ngIf="recipeDetails.strSource" [href]="recipeDetails.strSource" target="_blank" 
+              class="flex items-center px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+              </svg>
+              Original Recipe Source
+            </a>
+          </div>
+        </div>
+        
+        <!-- Back to Recipes Button -->
+        <div class="mt-8 text-center">
+          <button  routerLink="/list"class="px-6 py-3 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-colors">
+            ← Back to Recipes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading State -->
+<div class="flex justify-center items-center min-h-screen bg-gray-50" *ngIf="loading">
+  <div class="text-center p-8">
+    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-500 border-t-transparent mb-4"></div>
+    <p class="text-xl text-gray-700">Loading recipe...</p>
+  </div>
+</div>
+
+<!-- Error State -->
+<div class="flex justify-center items-center min-h-screen bg-gray-50" *ngIf="error">
+  <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+    </svg>
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ error }}</h2>
+    <p class="text-gray-600 mb-6">We couldn't load this recipe. Please try again later.</p>
+    <button  routerLink="/list" class="px-6 py-3 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-colors">
+      Return to Recipes
+    </button>
+  </div>
+</div>
